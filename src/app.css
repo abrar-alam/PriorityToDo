@@ -1,0 +1,9 @@
+li.done{
+    text-decoration: line-through;
+    color: green;
+}
+
+.list_dates{
+    font-weight: bold;
+    padding: 2%;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriorityToDO</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <form id="task-form">
+        <input id="task_name_field" type="text" placeholder="Enter a task">
+
+        <label for="completionDate">Start date:</label>
+
+        <input type="date" id="completionDate" name="completionDay" value="2018-07-22" min="2018-01-01"
+            max="2040-12-31" />
+
+        <label for="priorityType">Priority:</label>
+        
+        <label for="essential"> essential &#128681;</label>
+        <input type="checkbox" id="essential" name="essential" value="essential">
+        
+        
+        <label for="important"> important 	
+            &#128314;</label>
+        <input type="checkbox" id="important" name="important" value="important">
+
+        <label for="helpful"> helpful &#127793;</label> 
+        <input type="checkbox" id="helpful" name="helpful" value="helpful">
+        
+        <button id="add_task">Add!</button>
+    </form>
+
+    <hr>
+    <section class="to_dos">
+        <h2 id="to_do_header">Tasks To Do</h2>
+        <ul id="tasks_to_do_list" class="tasksToDoList">
+            <li>AAs <span class="list_dates">2022-02-23</span><span>&#127793;</span></li>
+        </ul>
+    </section>
+
+    <section class="completed">
+        <h2 id="completed_header">Completed Tasks</h2>
+        <ul id="completed_tasks_list" class="completedTaskList">
+
+        </ul>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
