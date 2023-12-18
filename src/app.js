@@ -1,6 +1,7 @@
 const add_btn = document.querySelector("button#add_task");
 const form_data = document.querySelector("form#task-form");
 const to_do_section = document.querySelector("section.to_dos");
+const to_do_ul = to_do_section.querySelector("ul");
 // let element_to_create = null;
 // let 
 
@@ -15,6 +16,7 @@ function return_priority(){
 };
 
 
+
 add_btn.addEventListener("click", function(e){
     e.preventDefault();
     console.log(form_data.querySelector("#task_name_field").value);
@@ -25,11 +27,19 @@ add_btn.addEventListener("click", function(e){
     date_span.innerText = form_data.querySelector("#completionDate").value;
     date_span.className = "list_dates";
     priority_span.innerHTML = return_priority();
+    btn_finished = document.createElement("button");
+    btn_finished.className = 'finshedButton';
+    btn_finished.innerText = 'finished';
 
+    btn_remove = document.createElement("button");
+    btn_remove.className = 'removeButton';
+    btn_remove.innerText = 'remove';
 
     li_to_create.append(date_span);
     li_to_create.append(priority_span);
-    to_do_section.querySelector("#tasks_to_do_list").append(li_to_create);
+    li_to_create.append(btn_finished);
+    li_to_create.append(btn_remove);
+    to_do_section.querySelector("#tasks_to_do_list").prepend(li_to_create);
 
     let entry = {'section': 'to_dos', 'task_name':form_data.querySelector("#task_name_field").value,
                     'due_date':date_span.innerText, 'done': 'no',
@@ -50,3 +60,11 @@ add_btn.addEventListener("click", function(e){
     }
     
 });
+
+to_do_ul.addEventListener("click", function(e){
+    if (e.target.className ==='removeButton'){
+        console.dir(e.target);
+        e.target.parentElement.remove();
+        //resume from here
+    }
+})

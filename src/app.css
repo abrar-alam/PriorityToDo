@@ -7,3 +7,12 @@ li.done{
     font-weight: bold;
     padding: 2%;
 }
+
+.finshedButton{
+    margin-right:16px;
+    margin-left: 16px;
+}
+
+.removeButton{
+    margin-right:16px;
+}
