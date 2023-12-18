@@ -18,8 +18,17 @@
             max="2040-12-31" />
 
         <label for="priorityType">Priority:</label>
+
+        <input type="radio" id="essential" name="priority" value="essential" checked>
+        <label for="essential">essential &#128681;</label>
+
+        <input type="radio" id="important" name="priority" value="important">
+        <label for="important">important &#128314;</label>
+
+        <input type="radio" id="helpful" name="priority" value="helpful">
+        <label for="helpful">helpful &#127793;</label>
         
-        <label for="essential"> essential &#128681;</label>
+        <!-- <label for="essential"> essential &#128681;</label>
         <input type="checkbox" id="essential" name="essential" value="essential">
         
         
@@ -28,7 +37,7 @@
         <input type="checkbox" id="important" name="important" value="important">
 
         <label for="helpful"> helpful &#127793;</label> 
-        <input type="checkbox" id="helpful" name="helpful" value="helpful">
+        <input type="checkbox" id="helpful" name="helpful" value="helpful"> -->
         
         <button id="add_task">Add!</button>
     </form>
