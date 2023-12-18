@@ -64,7 +64,17 @@ add_btn.addEventListener("click", function(e){
 to_do_ul.addEventListener("click", function(e){
     if (e.target.className ==='removeButton'){
         console.dir(e.target);
+        console.dir(Array.prototype.indexOf.call(e.target.parentElement.parentElement.children, e.target.parentElement));
+        
+        // Now delete this task from the local storage
+        let idx = Array.prototype.indexOf.call(e.target.parentElement.parentElement.children, e.target.parentElement);
+        let user_info_arr = JSON.parse(localStorage.getItem("user_data"));
+        user_info_arr.splice(idx, 1);
+        // Now we can safely remove the task
         e.target.parentElement.remove();
-        //resume from here
+        //Update the local storage
+        localStorage.setItem("user_data", JSON.stringify(user_info_arr));
     }
+
+    //Continue from here
 })
