@@ -16,8 +16,6 @@ if (localStorage.getItem("user_data")) {
         date_span.className = "list_dates";
         priority_span.innerHTML = user.priority;
         
-       
-
         btn_remove = document.createElement("button");
         btn_remove.className = 'removeButton';
         btn_remove.innerText = 'remove';
@@ -36,26 +34,15 @@ if (localStorage.getItem("user_data")) {
         to_do_section.querySelector("#tasks_to_do_list").append(li_to_create);
     }
 }
-function return_priority() {
-    if (document.getElementById('essential').checked) {
-        return '&#128681;';
-    }
-    else if (document.getElementById('important').checked) {
-        return '&#128314;';
-    }
-    return '&#127793;';
-};
-
-
 
 add_btn.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log(form_data.querySelector("#task_name_field").value);
+    // console.log(form_data.querySelector("#task_name_field").value);
     let li_to_create = document.createElement("li");
     let date_span = document.createElement("span");
     let priority_span = document.createElement("span");
     li_to_create.innerText = form_data.querySelector("#task_name_field").value;
-    date_span.innerText = form_data.querySelector("#completionDate").value;
+    date_span.innerText = form_data.querySelector("#dueDate").value;
     date_span.className = "list_dates";
     priority_span.innerHTML = return_priority();
     btn_finished = document.createElement("button");
@@ -86,7 +73,7 @@ add_btn.addEventListener("click", function (e) {
     if (!localStorage.getItem("user_data")) {
 
 
-        console.log(entry);
+        // console.log(entry);
 
         localStorage.setItem("user_data", JSON.stringify([entry]));
     }
@@ -104,8 +91,8 @@ to_do_ul.addEventListener("click", function (e) {
     let user_info_arr = JSON.parse(localStorage.getItem("user_data"));
 
     if (e.target.className === 'removeButton') {
-        console.dir(e.target);
-        console.dir(Array.prototype.indexOf.call(e.target.parentElement.parentElement.children, e.target.parentElement));
+        // console.dir(e.target);
+        // console.dir(Array.prototype.indexOf.call(e.target.parentElement.parentElement.children, e.target.parentElement));
 
         // Now delete this task from the local storage
 
@@ -123,4 +110,14 @@ to_do_ul.addEventListener("click", function (e) {
     localStorage.setItem("user_data", JSON.stringify(user_info_arr));
 });
 
+// A helper function
+function return_priority() {
+    if (document.getElementById('essential').checked) {
+        return '&#128681;';
+    }
+    else if (document.getElementById('important').checked) {
+        return '&#128314;';
+    }
+    return '&#127793;';
+};
 
